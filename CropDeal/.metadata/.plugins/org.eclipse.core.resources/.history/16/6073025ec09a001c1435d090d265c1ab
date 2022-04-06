@@ -1,0 +1,72 @@
+package com.farmer.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.farmer.model.BankDetails;
+import com.farmer.model.Dealer;
+import com.farmer.service.AccountNotFound;
+import com.farmer.service.BankService;
+import com.farmer.service.DealerService;
+import com.farmer.service.USERNOTFOUND;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@RestController
+@RequestMapping("/dealer")
+public class HomeController {
+	
+	@Autowired
+	private DealerService dealerService;
+	
+	@Autowired
+	private BankService bankService;
+	
+	@PostMapping("/add")
+	public Dealer addDealerinfo(@RequestBody Dealer dealer) {
+		log.info("Inside the post method");
+		return dealerService.addDealerInfo(dealer);
+	}
+	
+	@GetMapping("/get")
+	public List<Dealer> getDealerInfo(){
+		log.info("inside the get method");
+		return dealerService.getDealerInfo();
+	}
+	
+	@PutMapping("/update/{id}")
+	public Dealer updateDealerinfo(@RequestBody Dealer dealer, @PathVariable("id") String id ) throws USERNOTFOUND {
+		log.info("Inside the put method");
+		return dealerService.updateDealerInfo(dealer,id);
+	}
+	
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<?> deleteDealer(@PathVariable String id) throws USERNOTFOUND {
+		log.info("Inside the delete method");
+		dealerService.deleteDealer(id);
+		return ResponseEntity.ok(HttpStatus.NO_CONTENT);
+	}
+	
+	@PostMapping("/bank/add")
+	public BankDetails addBankDetails(@RequestBody BankDetails bankDetails) {
+		return bankService.saveBankDetails(bankDetails);
+	}
+	@GetMapping("/bank/{account}")
+	public BankDetails getBankDetailsById(@PathVariable("account") Long id) throws AccountNotFound  {
+		log.info("Inside bank get method");
+		return bankService.getBankAccountById(id);
+	}
+
+}

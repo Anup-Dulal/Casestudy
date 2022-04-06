@@ -1,0 +1,39 @@
+package com.payment;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+import com.payment.Repo.PaymentRepo;
+import com.payment.model.Payment;
+import com.payment.service.PaymentService;
+
+@SpringBootTest
+class PaymentApplicationTests {
+	
+	@Autowired
+	private PaymentService paymentService;
+	
+	@MockBean
+	private PaymentRepo paymentRepo;
+	
+	@Test
+	void addPaymentTest() {
+		Payment payment = new Payment(1L, 11223L, "12-09", 112L, "Hari","Ram", 190L, 6756L, 123);
+		when(paymentRepo.save(payment)).thenReturn(payment);
+		assertEquals(payment, paymentService.addPaymentDetails(payment));
+	}
+	
+	@Test
+	void getPaymentByDealerName() {
+		Payment payment = new Payment(1L, 11223L, "12-09", 112L, "Hari", "Ram",190L, 6756L, 123);
+		when(paymentRepo.findByDealerName("Hari")).thenReturn(payment);
+		Payment payment2 = paymentService.getPaymentByDealerName("Hari");
+		assertEquals("Hari", payment2.getDealerName());
+	}
+
+}

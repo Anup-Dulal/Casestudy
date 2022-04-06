@@ -1,0 +1,9 @@
+
+a	java:S106/"9Replace this use of System.out or System.err by a logger.(—±ÄÿRMAJORZ
+CODE_SMELL
+Z
+java:S11351"2Complete the task associated to this TODO comment.(‡ñÅ¼RINFOZ
+CODE_SMELL
+S
+java:S5411:"*Use the primitive boolean expression here.(Â˜ÉãRMINORZ
+CODE_SMELL

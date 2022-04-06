@@ -1,0 +1,7 @@
+
+„
+java:S3305"SInject this field value directly into "authProvider", the only method that uses it.(’¼ÛµøÿÿÿÿRCRITICALZ
+CODE_SMELL
+h
+java:S1161>":Add the "@Override" annotation above this method signature(ùîØÓúÿÿÿÿRMAJORZ
+CODE_SMELL

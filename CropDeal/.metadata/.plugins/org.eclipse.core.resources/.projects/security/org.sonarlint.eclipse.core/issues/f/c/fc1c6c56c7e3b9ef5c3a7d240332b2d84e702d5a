@@ -1,0 +1,21 @@
+
+]
+java:S1128"1Remove this unused import 'com.admin.model.User'.(§÷°öHÁJRMINORZ
+CODE_SMELL
+q	java:S112<"FDefine and throw a dedicated exception instead of using a generic one.(¬ÜÜëHÈJRMAJORZ
+CODE_SMELL
+]
+java:S1135E"2Complete the task associated to this TODO comment.(áÒ≈ºHÍJRINFOZ
+CODE_SMELL
+Z
+java:S1452)"&Remove usage of generic wildcard type.(‹˛´Ç¸ˇˇˇˇHÎJRCRITICALZ
+CODE_SMELL
+q	java:S1120"FDefine and throw a dedicated exception instead of using a generic one.(ˆ≤⁄‹HÏJRMAJORZ
+CODE_SMELL
+v	java:S112C"FDefine and throw a dedicated exception instead of using a generic one.(»«œ§˘ˇˇˇˇHÌJRMAJORZ
+CODE_SMELL
+q	java:S112F"FDefine and throw a dedicated exception instead of using a generic one.(⁄ÒçHÓJRMAJORZ
+CODE_SMELL
+]
+java:S1135B"2Complete the task associated to this TODO comment.(áÒ≈ºHÔJRINFOZ
+CODE_SMELL
